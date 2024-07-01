@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+</head>
+<body>
+    <h1>Add New Task</h1>
+    <form method="POST">
+        <label>Task Name:</label>
+        <input type="text" name="task_name" required><br>
+        <label>Description:</label>
+        <input type="text" name="description" required><br>
+        <label>Due Date:</label>
+        <input type="date" name="due_date" required><br>
+        <label>Priority Level:</label>
+        <select name="level" required>
+            <option value="alpha">Alpha</option>
+            <option value="beta">Beta</option>
+            <option value="omega">Omega</option>
+        </select><br>
+        <button type="submit">Add Task</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
+
