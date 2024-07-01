@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View Tasks</title>
-</head>
-<body>
-    <h1>Task List</h1>
-    <ul>
+{% extends "base.html" %}
+
+{% block content %}
+<h2>View Tasks</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Priority Level</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for task in tasks %}
-        <li>
-            {{ task['name'] }} - {{ task['description'] }} - {{ task['Date'] }} - {{ task['priority level'] }} - {{ task['completion status'] }}
-            <a href="{{ url_for('complete_task', task_id=task['id']) }}">Complete</a>
-            <a href="{{ url_for('delete_task', task_id=task['id']) }}">Delete</a>
-            <a href="{{ url_for('edit_task', task_id=task['id']) }}">Edit</a>
-        </li>
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.date }}</td>
+            <td>{{ task.priority_level }}</td>
+            <td>{{ task.completion_status }}</td>
+            <td>
+                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('complete_task', task_id=task.id) }}" class="btn btn-success btn-sm">Complete</a>
+                <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-</body>
-</html>
+    </tbody>
+</table>
+{% endblock %}
 

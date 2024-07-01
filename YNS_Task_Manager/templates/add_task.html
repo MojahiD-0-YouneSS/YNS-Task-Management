@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add New Task</h1>
-    <form method="POST">
-        <label>Task Name:</label>
-        <input type="text" name="task_name" required><br>
-        <label>Description:</label>
-        <input type="text" name="description" required><br>
-        <label>Due Date:</label>
-        <input type="date" name="due_date" required><br>
-        <label>Priority Level:</label>
-        <select name="level" required>
-            <option value="alpha">Alpha</option>
-            <option value="beta">Beta</option>
-            <option value="omega">Omega</option>
-        </select><br>
-        <button type="submit">Add Task</button>
-    </form>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Task</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Task Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="due_date">Due Date</label>
+        <input type="date" class="form-control" id="due_date" name="due_date" required>
+    </div>
+    <div class="form-group">
+        <label for="level">Priority Level</label>
+        <select class="form-control" id="level" name="level" required>
+            <option value="alpha">Alpha (Important)</option>
+            <option value="beta">Beta (Somewhat Important)</option>
+            <option value="omega">Omega (Less Important)</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+</form>
+{% endblock %}
 

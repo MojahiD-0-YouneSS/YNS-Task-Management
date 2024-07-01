@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task Manager</title>
-</head>
-<body>
-    <h1>Task Manager</h1>
-    <a href="{{ url_for('add_task') }}">Add Task</a>
-    <a href="{{ url_for('view_tasks') }}">View Tasks</a>
-</body>
-</html>
+{% extends "base.html" %}
 
+{% block content %}
+<div class="jumbotron text-center">
+    <h1>Welcome to Task Manager</h1>
+    <p class="lead">Manage your tasks efficiently and effectively.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('add_task') }}" role="button">Add New Task</a>
+</div>
+{% endblock %}
