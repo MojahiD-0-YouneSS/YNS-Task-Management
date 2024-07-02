@@ -8,6 +8,26 @@
   ],
   "routes": [
     {
+      "src": "/add",
+      "dest": "YNS_Task_Manager/app.py"
+    },
+    {
+      "src": "/view",
+      "dest": "YNS_Task_Manager/app.py"
+    },
+    {
+      "src": "/edit/:task_id",
+      "dest": "YNS_Task_Manager/app.py"
+    },
+    {
+      "src": "/delete/:task_id",
+      "dest": "YNS_Task_Manager/app.py"
+    },
+    {
+      "src": "/complete/:task_id",
+      "dest": "YNS_Task_Manager/app.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "YNS_Task_Manager/app.py"
     }
